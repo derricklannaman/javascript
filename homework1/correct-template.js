@@ -4,7 +4,7 @@ var colors = [];
 var animals = [];
 var people = [];
 
-var response = prompt(' Do you want to add (a)nimal, (c)olor, (p)eople (q)uit');
+var response = prompt(' Add (a)nimal, (c)olor, (p)eople (q)uit');
 while(response != 'q')
 {
 			var count =('How many would you like')

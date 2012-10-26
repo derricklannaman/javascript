@@ -1,0 +1,14 @@
+.photo
+{
+	border: 1px solid #252525;
+	width: 200px;
+	height: 200px;
+	float: left;
+	margin: 20px;
+}
+
+
+img{
+	width: 200px;
+	height: 200px;
+}

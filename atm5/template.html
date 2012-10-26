@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ATM 5</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="template.css">
+	<script src="jquery-1.8.2.js"></script>	
+	<script src="template.js"></script>	
+</head>
+<body>
+
+	<div id="wrapper">
+
+		<header>
+			<h1>Bank of DL</h1>
+		</header>
+
+		<div class="bank_account">
+			<div class="balance">
+				<h3>checking</h3>
+				<span id="checking_balance">1000</span>
+			</div>
+
+			<div id="checking_action">
+				<input type="text" id="input_amount_checking" placeholder="enter" />
+				<input type="button" value="Deposit" id="button_checking_deposit" />
+				<input type="button" value="Withdraw" id="button_checking_withdraw" />
+			</div>
+		</div><!-- end checking_account -->
+
+			<div class="bank_account">
+				<div class="balance">
+					<h3>savings</h3>
+					<span id="saving_balance">1000</span>
+				</div>
+
+				<div id="saving_action">
+					<input type="text" id="input_amount_saving" placeholder="enter" />
+					<input type="button" value="Deposit" id="button_saving_deposit" />
+					<input type="button" value="Withdraw" id="button_saving_withdraw" />
+			  </div>
+			</div><!-- end saving -->
+
+	</div><!-- end wrapper -->
+
+
+</body>
+</html>

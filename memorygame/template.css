@@ -1,0 +1,26 @@
+#container {
+	margin:	auto;
+	width:	660px;
+	border:	1px solid #999;
+	padding:	20px;
+
+}
+
+.square {
+
+	float:	left;
+	width:	150px;
+	height:	100px;
+	border:	1px solid black;
+	margin: 13px;
+
+}
+
+.hover_color {
+	background-color:	orange;
+}
+
+.selected_square {
+	background-color:	white;
+	border:	1px solid orange;
+}

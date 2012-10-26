@@ -1,0 +1,49 @@
+/*
+ *	CSS
+ */
+
+
+ body {
+	font-size: 20px;
+	
+ }
+
+ #container {
+ 	margin:	auto;
+ 	width: 600px;
+ 	margin-top: 80px;
+ 	border: 1px solid #999;
+ }
+
+ .panel {
+ 	padding: 20px;
+ }
+
+.a, .box {
+
+	float:	left;
+	width:	50px;
+	height:	50px;
+	border:	1px solid black;
+	margin:	10px;
+}
+
+.alert {
+
+	background:	red;
+}
+
+.green {
+
+	background:	green;
+}
+
+.blue {
+
+	background:	blue;
+
+} 
+
+.red {
+	background-color:	red;
+}

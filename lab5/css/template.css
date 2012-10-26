@@ -1,0 +1,11 @@
+#container {
+	width:	960;
+	margin:	auto;
+}
+
+.box {
+	width:	100px;
+	height:	100px;
+	float:	left;
+	border:	2px solid black;
+}

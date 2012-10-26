@@ -1,0 +1,12 @@
+
+#wrapper {
+	margin:	auto;
+	width:	960px;
+	background:	yellow;
+}
+
+.bank_account {
+	margin:	10px;
+	padding:	10px;
+	border:	2px solid red;
+}
