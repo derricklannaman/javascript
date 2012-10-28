@@ -1,0 +1,25 @@
+#grocery_app {
+	margin:	auto;
+	width:	300px;
+	border:	5px solid #BBB;
+}
+
+#container {
+	margin:	auto;
+	margin-left: 63px;
+	width: 205px;
+}
+
+
+
+#output_box {
+	width:	150px;
+	height:	150px;
+	border:	3px solid #BBB;
+	margin-top:	10px;
+}
+
+#input_text {
+	width:	150px;
+
+}
