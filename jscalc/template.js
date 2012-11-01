@@ -1,113 +1,181 @@
 var start_num = 0;
-var result = null;
-var result1 = null;
-var result2 = null;
+var result = 0;
+var next_result = 0;
+var operator = null
 
-var num1 = null;
-var num2 = null;
-
-
-
-
+var total = 0;
 
 $(function(){
-	$('#on').click(start_up_calc);
-	$('#off').click(turn_off_calc);
+	$('body').hide().fadeIn(250);
+// Button Behavor	
+	$('#on').click(power_on);
+	$('#on').click(power_light_on);
+	$('#off').click(power_off);
+	$('#off').click(power_light_off);
+	// Hovering
+	$('.button_ops').hover(backlight_on, backlight_off);
+	$('.button_big').hover(backlight_on, backlight_off);
+	$('#clear').hover(backlight_on, backlight_off);	
+	$('#riddle').hover(backlight_on, backlight_off);	
+	$('#dot').hover(backlight_on, backlight_off);	
+	$('#off').hover(backlight_on, backlight_off);
+	// Clicking
 	$('#clear').click(clear_display);
-	$('.button').click(get_num);
-	$('#plus').click(add_num);
-	$('#equal').click(tally_results);
 	$('#riddle').click(riddle);
+	$('.button').click(light_button);
+	$('#equal').click(clear_light);
+
+// Numeric Operations
+	$('.button').click(get_num);
+	$('#plus').click(plus);
+	$('#subtract').click(subtract);
+	$('#multiply').click(multiply);
+	$('#divide').click(divide);
+	$('#equal').click(equals);
 
 });
 
-function riddle(){
-	$('#display').text('B.I.Y.F.S.');
-}
+// THE CALCULATORS NUMERIC OPERATIONS
 
-function get_num(){
-			result = $(this).text();
-			result = parseInt(result);
-			$('#display').text(result);
-}
-
-
-function add_num(){
-	num =  $('#display').text();
-	num = parseInt(num);
-
-	// result2 = $('#display').text();
-	// result2 = parseInt(result2);
-
-	// results = result1 + result2;
-	// tally_results();
-	// $('#display').text(results);
-	// add_next_num();
-}
-
-// function add_next_num(){
-// 	get_num() + add_num();
-
-// }
-
-function tally_results(){
-	result = num + num;
-
+// Gets numbers when buttons are pressed and puts it in display
+function get_num(){ 
+	result = $(this).text();
+	result = parseInt(result);
 	$('#display').text(result);
-	console.log(result);
+} 
+
+function divide(){
+	var divide = $('#divide').text();
+	$('#display').text(divide);
+	next_result = result;
+	operator = 'divide';
 }
 
+function multiply(){
+	var multiply = $('#multiply').text();
+	$('#display').text(multiply);
+	next_result = result;
+	operator = 'mult';
+}
 
+function subtract(){
+	var subtract = $('#subtract').text();
+	$('#display').text(subtract);
+	next_result = result;
+	operator = 'sub';
+}
 
+function plus(){
+	var plus = $('#plus').text();
+	$('#display').text(plus);
+	next_result = result;
+	operator = 'plus';
+}
+
+function equals(){
+	if (operator == 'plus'){
+		total = result + next_result;
+		$('#display').text(total);
+	}
+	else if (operator == 'sub'){
+		total = next_result - result;
+		$('#display').text(total);
+	}
+	else if (operator == 'mult'){
+		total = result * next_result;
+		$('#display').text(total);
+	}
+	else {
+		total = next_result / result;
+		$('#display').text(total);		
+	}
+}
+
+// THE CALCULATORS BUTTON OPERATIONS
+
+// Turns Calculator ON
+function power_on(){
+	$('#display').text(start_num).fadeIn(800, power_up());
+	$('#on').css({'background-color': 'white',
+								'color': 'white',
+								'text-shadow': '1px 1px 1px black'
+							});
+	$('#power_light').fadeIn(1000, power_light_on());
+}
+
+// Turns Display Window ON
+function power_up(){
+	$('#display').css('transition', 'background-color .8s ease');
+	$('#display').addClass('display_on');
+}
+
+// Turns the 'Power Indicator' Light ON
+function power_light_on(){
+	$('#power_light').css({'transition': 'background-color .8s ease',
+												 'background-color': '#5DE100',
+												 'box-shadow': '2px 1.5px 7px rgba(0, 0, 0, 0.5)'});
+}
+
+// Turns Calculator OFF
+function power_off(){
+	$('#display').text('');
+	$('#display').removeClass('display_on');
+	$('#on').css({'background-color': '#C9D2D7',
+								'color': '#1D007B',
+								'text-shadow': 'none'});
+	$('#power_light').fadeIn(500, power_light_off());
+}
+
+// Turns the 'Power Indicator' Light OFF
+function power_light_off(){
+	$('#power_light').css({'transition': 'background-color .8s ease',
+												 'background-color': 'rgba(255, 255, 0, 0.1)',
+												 'box-shadow': '2px 1.5px 7px rgba(0, 0, 0, 0.5)'});
+}
+// BUTTON BEHAVIOR
+
+// Backlights Buttons on Hover (for +, -, *, /, 'dot', ?, and "OFF" buttons)	
+function backlight_on(){
+	$(this).css({'background-color': 'white',
+							 'color': 'white',
+							 'text-shadow': '1px 1px 1px black'});
+}
+
+function backlight_off(){
+	$(this).css({'background-color': '#C9D2D7',
+							 'color': '#1D007B',
+							 'text-shadow': 'none'});	
+}
+// Backlights Buttons on Click (for number pad and "ON" button) 	
+
+function light_button(){
+	$(this).css({'background-color': 'white',
+							 'color': 'white',
+							 'text-shadow': '1px 1px 1px black'});
+}
+// Removes backlighting when "equal button" is pressed
+function clear_light(){
+	$('.button').css({'background-color': '#C9D2D7',
+										'color': '#1D007B',
+										'text-shadow': 'none'});
+}
+
+// Misc Button behavior
+function riddle(){
+	$('#display').text("Believe in Your Fuckin' Self.");
+	$('#display').css({'font-size': '18px',
+											'text-align': 'center',
+										});
+}
 
 function clear_display(){
 	$('#display').text('');
 }
 
-function turn_off_calc(){
-	$('#display').text('');
-	//remove lighted background 
-}
-
-function start_up_calc(){
-	$('#display').text(start_num);
-	//add lighted background
-}
-
-
-
-
-
-
-
-
-
-
-
-
 // ISSUES / BROKEN IDEAS
 
 
 
-// function add_num(){
-// 	var result1 =  $('#display').text();
-// 	result1 = parseInt(result1);
-
-// 	var result2 = $('#display').text();
-// 	result2 = parseInt(result2);
-
-// 	var results = result1 + result2;
-// 	$('#display').text(results);
-// } This code works
-
-
-
-
-// $('#dot').click(get_dot); (if they click dot it adds . and changes to float)
-// function get_dot(){
-// 				var dot = $('#dot').text();
-// 				$('#display').text(dot);
-// }
 
 
 
